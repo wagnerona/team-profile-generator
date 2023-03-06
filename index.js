@@ -26,36 +26,138 @@ const teamManager = () => {
             type: 'input',
             name: 'name',
             message: 'Please provide the name of the manager',
-
         },
         {
             type: 'input',
             name: 'id',
             message: 'Please provide the ID of the manager',
-
         },
         {
             type: 'input',
             name: 'email',
             message: 'Please provide the email of the manager',
-
         },
         {
             type: 'input',
             name: 'officeNumber',
             message: 'Please provide the office number of the manager',
-
         }
-
-    ]).then(answers => {
+    ]).then(managerAnswers => {
 
         // Object Destructing
-        const { name, id, email, officeNumber } = answers;
+        const { name, id, email, officeNumber } = managerAnswers;
         const manager = new Manager(name, id, email, officeNumber);
 
         arrayTeam.push(manager);
         console.log(manager);
+        addMore();
     })
 }
+
+
+const addMore = () => {
+
+    inquirer.prompt([
+        {
+            type: 'list',
+            name: 'options',
+            message: 'Thanks! Now, would you like to:',
+            choices: ['Add an engineer', 'Add an intern', 'Finish building team']
+        }
+    ]).then(answer => {
+
+        switch (answer.options) {
+
+            case 'Add an engineer':
+                addEngineer();
+                break;
+
+            case 'Add an intern':
+                addIntern();
+                break;
+
+            default:
+                createHtml();
+        }
+    })
+};
+
+
+const addEngineer = () => {
+
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Please provide the name of the Engineer',
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'Please provide the ID of the Engineer',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Please provide the email of the Engineer',
+        },
+        {
+            type: 'input',
+            name: 'gitHub',
+            message: 'Please provide the GitHub of the Engineer',
+        },
+    ]).then(engineerAnswers => {
+
+        // Object Destructing
+        const { name, id, email, gitHub } = engineerAnswers;
+        const engineer = new Engineer(name, id, email, gitHub);
+
+        arrayTeam.push(engineer);
+        console.log(engineer);
+        addMore();
+    })
+};
+
+const addIntern = () => {
+
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Please provide the name of the Intern',
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'Please provide the ID of the Intern',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Please provide the email of the Intern',
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: 'Please provide the School of the Intern',
+        },
+    ]).then(internAnswers => {
+
+        // Object Destructing
+        const { name, id, email, school } = internAnswers;
+        const intern = new intern(name, id, email, school);
+
+        arrayTeam.push(intern);
+        console.log(intern);
+        addMore();
+    })
+};
+
+
+const createHtml = () => {
+}
+
+
+
 
 teamManager();
