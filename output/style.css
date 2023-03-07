@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+body {
+    font-family: 'Poppins';
+  }
+  
+  .jumbotron {
+    background-color: #c5774a;
+    color: white;
+  }
+  
+  .employee-card {
+    width: 100%;
+    max-width: 300px;
+    color: rgb(65, 65, 65);
+    display: flex;
+    box-shadow: 7px 7px 10px 8px rgba(0,0,0,0.10);
+    border: none;
+  }
+  
+  .card-header {
+    background-color: #3f6372;
+    color: white
+  }
+  
+
+  a {
+    color: #3c6bd1;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #3c6bd16c;
+    text-decoration: none;
+  }
