@@ -16,8 +16,7 @@ const render = require("./src/page-template.js");
 // Array of team 
 const arrayTeam = [];
 
-// prompt for Employee
-
+// Prompt for Employee
 const setManager = () => {
     console.log("Please answer the questions below to build your team's profile");
 
@@ -82,7 +81,7 @@ const setManager = () => {
     })
 }
 
-
+// Function to add more or finish building team
 const addMore = () => {
 
     inquirer.prompt([
@@ -111,7 +110,7 @@ const addMore = () => {
     })
 };
 
-
+// function to add engineer 
 const addEngineer = () => {
 
     inquirer.prompt([
@@ -175,6 +174,7 @@ const addEngineer = () => {
     })
 };
 
+// function to add intern 
 const addIntern = () => {
 
     inquirer.prompt([
@@ -238,17 +238,19 @@ const addIntern = () => {
     })
 };
 
-
+// function to add engineer html
 const createHtml = () => {
 
+    // if function to check if directory already exists, if not it creates it
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
     }
     console.log("Your team profile is being created...");
+    // writes file using outputPath provided 
     fs.writeFileSync(outputPath, render(arrayTeam))
 }
 
 
 
-
+// initialize prompts 
 setManager();
