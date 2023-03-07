@@ -77,8 +77,8 @@ const addMore = () => {
                 break;
 
             default:
-                // createHtml();
-                break;
+                createHtml();
+                
         }
     })
 };
@@ -154,6 +154,15 @@ const addIntern = () => {
     })
 };
 
+
+const createHtml = () => {
+    
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR)
+    }
+    console.log("Your team profile is being created...");
+    fs.writeFileSync(outputPath, render(arrayTeam))
+}
 
 
 
