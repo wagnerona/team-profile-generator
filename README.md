@@ -44,6 +44,9 @@ Checking for directories and files with fs:
 
 - https://www.geeksforgeeks.org/node-js-fs-existssync-method/
 
+CSS styles cheatsheet:
+- https://htmlcheatsheet.com/css/
+
 ## Questions
 
 If you have any questions please contact me at wagnerolarco@gmail.com or if check me out on GitHub at https://github.com/wagnerona
