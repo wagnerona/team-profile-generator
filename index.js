@@ -26,22 +26,50 @@ const setManager = () => {
             type: 'input',
             name: 'name',
             message: 'Please provide the name of the manager',
+            validate: response => {
+                if (response) {
+                    return true;
+                }
+                return 'Please enter a valid name'
+            }
         },
         {
             type: 'input',
             name: 'id',
             message: 'Please provide the ID of the manager',
+            validate: response => {
+                if (response) {
+                    return true;
+                }
+                return 'Please enter a valid ID'
+            }
         },
         {
             type: 'input',
             name: 'email',
             message: 'Please provide the email of the manager',
+            validate: function (email) {
+
+                // Regex mail check (return true if valid mail)
+                valid = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email);
+
+                if (valid) {
+                    return true;
+                }
+                return 'Please enter a valid email'
+            }
         },
         {
             type: 'input',
             name: 'officeNumber',
             message: 'Please provide the office number of the manager',
-        }
+            validate: response => {
+                if (response) {
+                    return true;
+                }
+                return 'Please enter a valid number'
+            }
+        },
     ]).then(managerAnswers => {
 
         // Object Destructing
@@ -78,7 +106,7 @@ const addMore = () => {
 
             default:
                 createHtml();
-                
+
         }
     })
 };
@@ -91,21 +119,49 @@ const addEngineer = () => {
             type: 'input',
             name: 'name',
             message: 'Please provide the name of the Engineer',
+            validate: response => {
+                if (response) {
+                    return true;
+                }
+                return 'Please enter a valid name'
+            }
         },
         {
             type: 'input',
             name: 'id',
             message: 'Please provide the ID of the Engineer',
+            validate: response => {
+                if (response) {
+                    return true;
+                }
+                return 'Please enter a valid ID'
+            }
         },
         {
             type: 'input',
             name: 'email',
             message: 'Please provide the email of the Engineer',
+            validate: function (email) {
+
+                // Regex mail check (return true if valid mail)
+                valid = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email);
+
+                if (valid) {
+                    return true;
+                }
+                return 'Please enter a valid email'
+            }
         },
         {
             type: 'input',
             name: 'gitHub',
             message: 'Please provide the GitHub of the Engineer',
+            validate: response => {
+                if (response) {
+                    return true;
+                }
+                return 'Please enter a valid username'
+            }
         },
     ]).then(engineerAnswers => {
 
@@ -126,21 +182,49 @@ const addIntern = () => {
             type: 'input',
             name: 'name',
             message: 'Please provide the name of the Intern',
+            validate: response => {
+                if (response) {
+                    return true;
+                }
+                return 'Please enter a valid name'
+            }
         },
         {
             type: 'input',
             name: 'id',
             message: 'Please provide the ID of the Intern',
+            validate: response => {
+                if (response) {
+                    return true;
+                }
+                return 'Please enter a valid ID'
+            }
         },
         {
             type: 'input',
             name: 'email',
             message: 'Please provide the email of the Intern',
+            validate: function (email) {
+
+                // Regex mail check (return true if valid mail)
+                valid = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email);
+
+                if (valid) {
+                    return true;
+                }
+                return 'Please enter a valid email'
+            }
         },
         {
             type: 'input',
             name: 'school',
             message: 'Please provide the School of the Intern',
+            validate: response => {
+                if (response) {
+                    return true;
+                }
+                return 'Please enter a valid name'
+            }
         },
     ]).then(internAnswers => {
 
@@ -156,7 +240,7 @@ const addIntern = () => {
 
 
 const createHtml = () => {
-    
+
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
     }
